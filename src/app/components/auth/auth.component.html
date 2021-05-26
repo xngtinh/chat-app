@@ -1,0 +1,34 @@
+<app-toast-notification></app-toast-notification>
+<div class="login">
+  <img src="assets/img/favicon.png" alt="Logo" class="mx-auto">
+  <h1 class="text-center">Husol Login</h1>
+  <form [formGroup]="authForm" (ngSubmit)="signIn()" novalidate>
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Ex. kevin@example.com" formControlName="email">
+        <mat-error *ngIf="formControls.email.hasError('email') && !formControls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="formControls.email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="w-full">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Password" formControlName="password">
+        <mat-error *ngIf="formControls.password.hasError('password') && !formControls.password.hasError('required')">
+          Password must be at least 8 characters
+        </mat-error>
+        <mat-error *ngIf="formControls.password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <p class="text-center">
+      <button [disabled]="!authForm.valid" mat-raised-button color="primary" mat-button>Sign In</button>
+      </p>
+    </div>
+  </form>
+</div>
+<app-loader></app-loader>

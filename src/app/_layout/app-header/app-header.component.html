@@ -1,0 +1,13 @@
+<div class="toolbar" role="banner">
+  <img
+    width="50"
+    alt="Husol Logo"
+    src="https://husol.org/img/logoHusol.png"
+  />
+  <nav *ngIf="authService.isLoggedIn()">
+    <a routerLink="/admin"><i class="material-icons text-sm">home</i> Dashboard</a>&nbsp;
+    <a routerLink="/stories">Stories</a>
+
+    <button class="absolute right-0" mat-raised-button color="accent" (click)="logout()">Logout</button>
+  </nav>
+</div>
